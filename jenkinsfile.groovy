@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'feature/web-frontUrbano', url: 'https://bitbucket.org/mobilityado/fu-aragon.git'
+                git branch: 'main', url: 'https://github.com/DrDiomedes/cucumbes_code.git'
             }
         }
 
