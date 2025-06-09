@@ -33,8 +33,8 @@ pipeline {
             steps {
                 sh '''
                 echo "[INFO] Instalando Google Chrome..."
-                sudo apt-get update -y
-                sudo apt-get install -y wget unzip curl gnupg
+                apt-get update -y
+                apt-get install -y wget unzip curl gnupg
                 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
                 sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
                 apt-get update
@@ -46,7 +46,7 @@ pipeline {
                 curl -sS -O https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${DRIVER_VERSION}/linux64/chromedriver-linux64.zip
                 unzip chromedriver-linux64.zip
                 chmod +x chromedriver-linux64/chromedriver
-                sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
+                mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
 
                 chromedriver --version
                 '''
