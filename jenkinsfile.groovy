@@ -29,45 +29,14 @@ pipeline {
         }
 
         
-        stage('Instalar Chrome y ChromeDriver') {
+        stage('Instalar Python y Selenium') {
             steps {
                 
                 sh '''
                 
                 yum install python3 -y
                 pip3 install selenium
-                /*
-                echo "[INFO] Instalando unzip desde busybox..."
-                # Descargar BusyBox (contiene unzip entre muchas utilidades)
-                curl -Lo busybox https://busybox.net/downloads/binaries/1.21.1/busybox-x86_64
-                chmod +x busybox
-                mv busybox /usr/local/bin/unzip
-
-                echo "[INFO] unzip simulado con busybox:"
-                unzip --help || true
-
-                echo "[INFO] Instalando librerías necesarias para ChromeDriver..."
-
-                yum update -y
-                yum install -y libnss3 libX11 libXcomposite libXdamage libXrandr \
-                libXtst libatk libatk-bridge gtk3 mesa-libgbm alsa-lib xorg-x11-server-Xvfb
-
-                echo "[INFO] Dependencias del sistema instaladas"
                 
-                echo "[INFO] Instalando ChromeDriver manualmente..."
-
-                # Seleccionar versión deseada (puedes ajustarla)
-                VERSION="114.0.5735.90"
-
-                # Descargar e instalar ChromeDriver
-                curl -sS -O https://chromedriver.storage.googleapis.com/${VERSION}/chromedriver_linux64.zip
-                unzip chromedriver_linux64.zip
-                chmod +x chromedriver
-                mv chromedriver /usr/local/bin/
-
-                echo "[INFO] ChromeDriver instalado:"
-                chromedriver --version
-                */
                 '''
             }
         }
