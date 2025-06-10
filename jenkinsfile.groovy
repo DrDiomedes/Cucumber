@@ -31,6 +31,12 @@ pipeline {
         
         stage('Instalar Chrome y ChromeDriver') {
             steps {
+                
+                sh '''
+                yum install python3
+                pip3 install selenium
+                '''
+                /*
                 sh '''
                 echo "[INFO] Instalando unzip desde busybox..."
                 # Descargar BusyBox (contiene unzip entre muchas utilidades)
@@ -62,6 +68,7 @@ pipeline {
 
                 echo "[INFO] ChromeDriver instalado:"
                 chromedriver --version
+                */
                 '''
             }
         }
