@@ -33,11 +33,10 @@ pipeline {
             steps {
                 
                 sh '''
+                
                 yum install python3
                 pip3 install selenium
-                '''
                 /*
-                sh '''
                 echo "[INFO] Instalando unzip desde busybox..."
                 # Descargar BusyBox (contiene unzip entre muchas utilidades)
                 curl -Lo busybox https://busybox.net/downloads/binaries/1.21.1/busybox-x86_64
