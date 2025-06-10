@@ -32,22 +32,18 @@ pipeline {
         stage('Instalar Chrome y ChromeDriver') {
             steps {
                 sh '''
-                echo "[INFO] Instalando Google Chrome..."
-                apt-get update -y
-                apt-get install -y wget unzip curl gnupg
-                wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-                sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
-                apt-get update
-                apt-get install -y google-chrome-stable
+                echo "[INFO] Instalando ChromeDriver manualmente..."
 
-                echo "[INFO] Instalando ChromeDriver..."
-                CHROME_VERSION=$(google-chrome-stable --version | grep -oP '\\d+\\.\\d+\\.\\d+')
-                DRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json" | jq -r ".channels.Stable.version")
-                curl -sS -O https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${DRIVER_VERSION}/linux64/chromedriver-linux64.zip
-                unzip chromedriver-linux64.zip
-                chmod +x chromedriver-linux64/chromedriver
-                mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
+                # Seleccionar versión deseada (puedes ajustarla)
+                VERSION="114.0.5735.90"
 
+                # Descargar e instalar ChromeDriver
+                curl -sS -O https://chromedriver.storage.googleapis.com/${VERSION}/chromedriver_linux64.zip
+                unzip chromedriver_linux64.zip
+                chmod +x chromedriver
+                mv chromedriver /usr/local/bin/
+
+                echo "[INFO] ChromeDriver instalado:"
                 chromedriver --version
                 '''
             }
