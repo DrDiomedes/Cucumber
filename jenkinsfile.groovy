@@ -43,8 +43,8 @@ pipeline {
 
                 echo "[INFO] Instalando librerías necesarias para ChromeDriver..."
 
-                sudo yum update -y
-                sudo yum install -y libnss3 libX11 libXcomposite libXdamage libXrandr \
+                yum update -y
+                yum install -y libnss3 libX11 libXcomposite libXdamage libXrandr \
                 libXtst libatk libatk-bridge gtk3 mesa-libgbm alsa-lib xorg-x11-server-Xvfb
 
                 echo "[INFO] Dependencias del sistema instaladas"
