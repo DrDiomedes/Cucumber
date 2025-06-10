@@ -34,7 +34,7 @@ pipeline {
                 
                 sh '''
                 
-                yum install python3
+                yum install python3 -y
                 pip3 install selenium
                 /*
                 echo "[INFO] Instalando unzip desde busybox..."
