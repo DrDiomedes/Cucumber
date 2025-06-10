@@ -32,6 +32,14 @@ pipeline {
         stage('Instalar Chrome y ChromeDriver') {
             steps {
                 sh '''
+                echo "[INFO] Descargando unzip..."
+                curl -sL https://github.com/kuba--/zip/releases/download/v3.0/unzip -o unzip
+                chmod +x unzip
+                mv unzip /usr/local/bin/unzip
+
+                echo "[INFO] unzip instalado:"
+                unzip -v
+                
                 echo "[INFO] Instalando ChromeDriver manualmente..."
 
                 # Seleccionar versión deseada (puedes ajustarla)
